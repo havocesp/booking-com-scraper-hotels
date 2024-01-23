@@ -86,7 +86,7 @@ def get_booking_page(session, offset, rooms, country, startdate, enddate):
             "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0)"
             " Gecko/20100101 Firefox/48.0"
         },
-    )
+    timeout=60)
     html = r.content
     parsed_html = BeautifulSoup(html, "lxml")
     return parsed_html
