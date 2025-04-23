@@ -8,6 +8,7 @@ import datetime
 from bthread import BookingThread
 from bs4 import BeautifulSoup
 from file_writer import FileWriter
+from security import safe_requests
 
 hotels = []
 
@@ -80,7 +81,7 @@ def get_booking_page(session, offset, rooms, country, startdate, enddate):
         )
         + str(offset)
     )
-    r = requests.get(
+    r = safe_requests.get(
         url,
         headers={
             "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0)"
